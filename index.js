@@ -4,15 +4,17 @@ const dotenv = require('dotenv').config();
 const connectDB = require('./config/db');
 
 const cors = require("cors")
-app.use(cors({
-    origin : 'http://localhost:3000',
-    methods : ["GET","POST"],
-}))
+
 const todos = require('./routes/todos'); 
 const users = require('./routes/users'); 
 const PORT = process.env.PORT;
 
 const app = express();
+
+app.use(cors({
+    origin : 'http://localhost:3000',
+    methods : ["GET","POST"],
+}))
 
 connectDB();
 
